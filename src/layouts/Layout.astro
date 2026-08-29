@@ -1,0 +1,163 @@
+---
+import { siteConfig } from '../config/siteConfig';
+import Header from '../components/Header.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = siteConfig.meta.title, description = siteConfig.meta.description } = Astro.props;
+---
+
+<!xhtml>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.identity.displayName} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://${siteConfig.identity.domain}/`} />
+    <meta property="og:title" content={siteConfig.meta.openGraphTitle} />
+    <meta property="og:description" content={siteConfig.meta.openGraphDescription} />
+    <meta property="og:image" content={`https://${siteConfig.identity.domain}/og-image.svg`} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={siteConfig.meta.openGraphTitle} />
+    <meta property="twitter:description" content={siteConfig.meta.openGraphDescription} />
+    <meta property="twitter:image" content={`https://${siteConfig.identity.domain}/og-image.svg`} />
+
+    <!-- Inline Script to prevent layout theme flash -->
+    <script is:inline>
+      (function () {
+        const savedTheme = localStorage.getItem('montes_theme');
+        if (
+          savedTheme === 'light' ||
+          (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)
+        ) {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col justify-between selection:bg-ruby selection:text-white relative">
+    <!-- Tactile Architectural Texture Background Overlay -->
+    <div
+      aria-hidden="true"
+      class="fixed inset-0 z-[-1] pointer-events-none select-none opacity-[0.20] dark:opacity-[0.32] mix-blend-overlay bg-repeat bg-center"
+      style="background-image: url('/images/texture-overlay.jpg'); background-size: 700px 700px;"
+    ></div>
+
+    <Header />
+    <MobileMenu />
+
+    <main id="main-content" class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Scroll Reveal & Consistent Text Generation Scramble Script -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 1. Scroll Reveal Observer
+        const reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+          const revealObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                }
+              });
+            },
+            { threshold: 0.1 }
+          );
+          reveals.forEach((el) => revealObserver.observe(el));
+        } else {
+          reveals.forEach((el) => el.classList.add('is-visible'));
+        }
+
+        // 2. Consistent Terminal Text Generation Scramble Animation
+        const scrambleElements = document.querySelectorAll('[data-scramble="true"]');
+        const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        function triggerScramble(element) {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+          let targetText = element.getAttribute('data-original-text');
+          if (!targetText) {
+            targetText = element.textContent.trim();
+            element.setAttribute('data-original-text', targetText);
+          }
+
+          let iteration = 0;
+          clearInterval(element._scrambleInterval);
+
+          element._scrambleInterval = setInterval(() => {
+            element.textContent = targetText
+              .split('')
+              .map((char, index) => {
+                if (char === ' ' || char === '—' || char === '☮' || char === '/') return char;
+                if (index < iteration) {
+                  return targetText[index];
+                }
+                return chars[Math.floor(Math.random() * chars.length)];
+              })
+              .join('');
+
+            if (iteration >= targetText.length) {
+              clearInterval(element._scrambleInterval);
+              element.textContent = targetText;
+            }
+            iteration += 1 / 2;
+          }, 30);
+        }
+
+        // Initialize elements and set up observers + hover events
+        scrambleElements.forEach((el) => {
+          if (!el.getAttribute('data-original-text')) {
+            el.setAttribute('data-original-text', el.textContent.trim());
+          }
+
+          // Trigger on hover
+          el.addEventListener('mouseenter', () => triggerScramble(el));
+        });
+
+        if ('IntersectionObserver' in window) {
+          const scrambleObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  triggerScramble(entry.target);
+                  scrambleObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.15 }
+          );
+
+          scrambleElements.forEach((el) => scrambleObserver.observe(el));
+        } else {
+          scrambleElements.forEach((el) => triggerScramble(el));
+        }
+      });
+    </script>
+  </body>
+</html>

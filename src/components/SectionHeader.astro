@@ -1,0 +1,39 @@
+---
+interface Props {
+  indexLabel: string;
+  number: string;
+  largeHeadline?: string;
+  showPeaceSymbol?: boolean;
+}
+
+const {
+  indexLabel,
+  number,
+  largeHeadline,
+  showPeaceSymbol = false,
+} = Astro.props;
+---
+
+<div class="relative pt-12 pb-6 mb-8 hairline-b overflow-hidden group">
+  <!-- Decorative oversized translucent ruby number (thin grotesk font without dotted zeros) -->
+  <span
+    aria-hidden="true"
+    class="absolute -top-6 right-0 md:right-4 font-display font-light text-[8rem] sm:text-[11rem] md:text-[14rem] leading-none select-none pointer-events-none text-ruby opacity-[0.14] dark:opacity-[0.18] tracking-tighter"
+  >
+    {number}
+  </span>
+
+  <div class="relative z-10 flex flex-col gap-3">
+    <!-- Grotesk Display Section Index (Clean, no dots, open zeros) -->
+    <div class="flex items-center gap-3 font-display text-xs md:text-sm uppercase tracking-widest text-ruby font-extrabold">
+      {showPeaceSymbol && <span class="text-base md:text-lg text-ruby select-none" aria-hidden="true">☮︎</span>}
+      <span data-scramble="true">{indexLabel}</span>
+    </div>
+
+    {largeHeadline && (
+      <h2 class="font-display text-3xl sm:text-4xl md:text-6xl font-extrabold uppercase tracking-tight text-primary max-w-4xl leading-[1.05]">
+        {largeHeadline}
+      </h2>
+    )}
+  </div>
+</div>

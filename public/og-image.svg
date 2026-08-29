@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#090909" />
+  
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="120" x2="1200" y2="120" stroke="#F2EEE7" stroke-opacity="0.1" stroke-width="1" />
+  <line x1="0" y1="510" x2="1200" y2="510" stroke="#F2EEE7" stroke-opacity="0.1" stroke-width="1" />
+  <line x1="100" y1="0" x2="100" y2="630" stroke="#F2EEE7" stroke-opacity="0.1" stroke-width="1" />
+
+  <!-- Oversized background text -->
+  <text x="1000" y="450" font-family="monospace" font-weight="900" font-size="280" fill="#B10D2E" fill-opacity="0.12" text-anchor="end">00</text>
+
+  <!-- Content -->
+  <text x="120" y="190" font-family="monospace" font-size="20" fill="#B10D2E" letter-spacing="4">00 — MONTES / NEW YORK CITY</text>
+  <text x="120" y="290" font-family="Inter, sans-serif" font-weight="900" font-size="96" fill="#F2EEE7" letter-spacing="-4">MONTES.WORK</text>
+  <text x="120" y="370" font-family="Inter, sans-serif" font-weight="700" font-size="32" fill="#F2EEE7" letter-spacing="-1">VISUAL STORYTELLING FOR THE REAL WORLD.</text>
+  <text x="120" y="430" font-family="monospace" font-size="18" fill="#9C9790" letter-spacing="2">STILL — MOTION — PROJECTS — CREATIVE PRODUCTION — PM</text>
+
+  <rect x="120" y="490" width="12" height="12" fill="#B10D2E" />
+  <text x="145" y="502" font-family="monospace" font-size="16" fill="#F2EEE7" letter-spacing="2">DEPLOY — HELLO@MONTES.WORK</text>
+</svg>

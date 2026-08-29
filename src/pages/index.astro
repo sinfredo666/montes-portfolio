@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import MotionFrame from '../components/MotionFrame.astro';
+import ContactForm from '../components/ContactForm.astro';
+import BrandLogos from '../components/BrandLogos.astro';
+import ProjectCarousel from '../components/ProjectCarousel.astro';
+import StillGallery from '../components/StillGallery.astro';
+import { siteConfig } from '../config/siteConfig';
+---
+
+<Layout>
+  <!-- ==========================================
+       SECTION 00 — RÉPERTOIRE
+       ========================================== -->
+  <section id="repertoire" class="scroll-mt-24 mb-28 relative overflow-hidden p-6 sm:p-10 border border-rule bg-bg/95 hairline-all rounded-sm">
+    <!-- Background Hero Aerial Image (DSCF9487.JPG) behind Section 00 at 15% opacity -->
+    <div aria-hidden="true" class="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+      <img
+        src="/images/DSCF9487.jpg"
+        alt=""
+        class="w-full h-full object-cover opacity-15"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-bg/90 via-bg/85 to-bg/95"></div>
+    </div>
+
+    <!-- Desktop Vertical Micro Typography Margin Accent -->
+    <div
+      aria-hidden="true"
+      class="hidden xl:flex absolute -right-12 top-24 origin-top-right rotate-90 font-mono text-[10px] uppercase tracking-widest text-secondary opacity-60 select-none pointer-events-none items-center gap-4 z-10"
+    >
+      <span>NEW YORK CITY / GLOBAL</span>
+      <span class="text-ruby">—</span>
+      <span>PHOTO · VIDEO · CREATIVE PRODUCTION</span>
+    </div>
+
+    <div class="relative z-10">
+      <!-- 1. Hero Block -->
+      <div class="relative flex flex-col gap-6 pt-4 pb-8 mb-12 overflow-hidden">
+        <!-- Clean Section Label -->
+        <div class="flex items-center justify-between font-display text-xs uppercase tracking-widest text-ruby font-extrabold z-10">
+          <div>
+            <span data-scramble="true">{siteConfig.section00.indexLabel}</span>
+          </div>
+          <span class="font-mono text-[10px] text-secondary font-normal tracking-wider">
+            EST. {siteConfig.identity.estYear} / NYC
+          </span>
+        </div>
+
+        <!-- Giant Title "MONTES" with Ruby Red + Infrared Dual-Tone Gradient -->
+        <div class="relative z-10 my-2 overflow-visible">
+          <h1 class="font-display text-ruby-infrared font-extrabold uppercase tracking-tighter text-6xl sm:text-8xl md:text-9xl lg:text-[8.2rem] xl:text-[9.2rem] leading-[0.82] select-none pr-3">
+            {siteConfig.section00.heroTitle}
+          </h1>
+
+          <!-- Giant Translucent Ruby Watermark "00" -->
+          <span
+            aria-hidden="true"
+            class="absolute -top-[6vw] right-0 font-display font-light text-[30vw] sm:text-[24vw] leading-none select-none pointer-events-none text-ruby opacity-[0.12] dark:opacity-[0.15] tracking-tighter"
+          >
+            00
+          </span>
+        </div>
+
+        <!-- Main Display Statement -->
+        <div class="relative z-10 flex flex-col font-display font-extrabold uppercase text-primary text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.92] tracking-tight max-w-5xl mt-2">
+          <span>VISUAL STORYTELLING</span>
+          <span>FOR THE REAL WORLD.</span>
+        </div>
+
+        <!-- Hero Sub-Metadata: Peace Sign on Location Line -->
+        <div class="relative z-10 flex flex-col gap-3 font-mono uppercase tracking-widest mt-6">
+          <!-- Line 1: Lead with Agency Experience (Bigger & Bolder) -->
+          <div class="flex flex-wrap items-center gap-2.5 text-base sm:text-lg md:text-xl font-black tracking-wider">
+            <span class="text-ruby font-extrabold">AGENCY EXPERIENCE <span class="text-primary font-bold">—</span></span>
+            <span data-scramble="true" class="text-primary font-black">{siteConfig.section00.agencies}</span>
+          </div>
+
+          <!-- Line 2: Dynamic Practice Terms (Text Scramble) -->
+          <div class="flex items-center gap-2.5 text-xs text-secondary font-bold">
+            <span data-scramble="true">PHOTO — VIDEO — CREATIVE PRODUCTION — PROJECT MANAGEMENT</span>
+          </div>
+
+          <!-- Line 3: Location Line with Peace Symbol Motif -->
+          <div class="flex items-center gap-2.5 text-xs text-secondary font-medium">
+            <span class="text-ruby text-lg select-none" aria-hidden="true">☮︎</span>
+            <span data-scramble="true">NEW YORK CITY / AVAILABLE GLOBALLY</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. One Cohesive Three-Paragraph Narrative -->
+      <div class="flex flex-col gap-6 max-w-3xl font-sans text-lg sm:text-xl leading-relaxed text-secondary hairline-t pt-8 mb-12 font-normal">
+        {siteConfig.section00.narrativeParagraphs.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+
+      <!-- 3 & 4. Editorial Proof Points: Domain Expertise & Brand Logos Grid -->
+      <div class="flex flex-col gap-8 py-8 hairline-y mb-12">
+        <!-- Clean Domain Expertise Editorial List -->
+        <div class="flex flex-col gap-3">
+          <span class="font-mono text-xs uppercase tracking-widest text-ruby font-bold" data-scramble="true">
+            {siteConfig.section00.domainExpertiseLabel}
+          </span>
+          <p class="font-mono text-sm sm:text-base uppercase tracking-wider text-primary font-semibold leading-relaxed">
+            {siteConfig.section00.domainExpertiseList.join(' — ')}
+          </p>
+        </div>
+
+        <!-- Selected Brand Experience Vector Logo Grid -->
+        <div class="flex flex-col gap-2 pt-6 hairline-t">
+          <span class="font-mono text-xs uppercase tracking-widest text-ruby font-bold" data-scramble="true">
+            {siteConfig.section00.brandLabel}
+          </span>
+          <!-- Vector Brand Logos Component -->
+          <BrandLogos />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 001 — STILL
+       ========================================== -->
+  <section id="still" class="scroll-mt-24 mb-28">
+    <SectionHeader
+      indexLabel={siteConfig.section001.sectionLabel}
+      number="001"
+      largeHeadline={siteConfig.section001.largeHeadline}
+      showPeaceSymbol={false}
+    />
+
+    <p class="font-sans text-lg sm:text-xl text-secondary max-w-3xl mb-10 leading-relaxed">
+      {siteConfig.section001.body}
+    </p>
+
+    <!-- Unobstructed Interactive Still Gallery -->
+    <StillGallery />
+  </section>
+
+  <!-- ==========================================
+       SECTION 002 — MOTION
+       ========================================== -->
+  <section id="motion" class="scroll-mt-24 mb-28">
+    <SectionHeader
+      indexLabel={siteConfig.section002.sectionLabel}
+      number="002"
+      largeHeadline={siteConfig.section002.largeHeadline}
+      showPeaceSymbol={false}
+    />
+
+    <p class="font-sans text-lg sm:text-xl text-secondary max-w-3xl mb-10 leading-relaxed">
+      {siteConfig.section002.body}
+    </p>
+
+    <!-- Motion Reel Component with HTML5 Video + Native Fallback -->
+    <MotionFrame
+      label={siteConfig.section002.placeholderLabel}
+      metadata={siteConfig.section002.smallMetadata}
+      altText="MONTES motion reel visual showcase"
+    />
+  </section>
+
+  <!-- ==========================================
+       SECTION 003 — PROJECTS
+       ========================================== -->
+  <section id="projects" class="scroll-mt-24 mb-28">
+    <SectionHeader
+      indexLabel={siteConfig.section003.sectionLabel}
+      number="003"
+      largeHeadline={siteConfig.section003.largeHeadline}
+      showPeaceSymbol={false}
+    />
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
+      <div class="lg:col-span-8 font-sans text-lg sm:text-xl text-secondary leading-relaxed">
+        <p>{siteConfig.section003.body}</p>
+      </div>
+
+      <div class="lg:col-span-4 font-mono text-xs uppercase tracking-wider text-secondary border-l border-rule pl-6 flex flex-col gap-2 justify-center">
+        <span class="text-chrome font-bold" data-scramble="true">[ SCOPE & CAPABILITIES ]</span>
+        <p class="leading-relaxed text-primary font-bold">{siteConfig.section003.metadata}</p>
+      </div>
+    </div>
+
+    <!-- Scrollable 3-Event Preview Carousel with Interactive Case Study Modal -->
+    <ProjectCarousel />
+  </section>
+
+  <!-- ==========================================
+       SECTION 004 — CONTACT / DEPLOY
+       ========================================== -->
+  <section id="contact" class="scroll-mt-24 mb-16 relative overflow-hidden p-6 sm:p-10 border border-rule bg-bg/95 hairline-all rounded-sm">
+    <!-- Background Hero Aerial Image (DSCF9478.JPG) behind Section 004 at 15% opacity -->
+    <div aria-hidden="true" class="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+      <img
+        src="/images/DSCF9478.jpg"
+        alt=""
+        class="w-full h-full object-cover opacity-15"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-bg/90 via-bg/85 to-bg/95"></div>
+    </div>
+
+    <div class="relative z-10">
+      <SectionHeader
+        indexLabel={siteConfig.section004.sectionLabel}
+        number="004"
+        largeHeadline={siteConfig.section004.largeHeadline}
+        showPeaceSymbol={true}
+      />
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Column: Contact Information & Availability -->
+        <div class="lg:col-span-5 flex flex-col gap-8">
+          <p class="font-sans text-lg sm:text-xl text-secondary leading-relaxed">
+            {siteConfig.section004.body}
+          </p>
+
+          <div class="font-mono text-xs uppercase tracking-widest text-ruby font-bold flex items-center gap-2" data-scramble="true">
+            <span class="text-sm select-none">☮︎</span>
+            <span>{siteConfig.section004.metadata}</span>
+          </div>
+
+          <div class="flex flex-col gap-6 hairline-t pt-6 font-mono text-xs uppercase tracking-wider">
+            <div class="flex items-center gap-2">
+              <span class="text-chrome font-bold" data-scramble="true">[ DIRECT CONTACT ]</span>
+            </div>
+
+            <!-- Email -->
+            <div class="flex flex-col gap-1">
+              <span class="text-secondary">EMAIL <span class="text-ruby font-bold">—</span></span>
+              <a
+                href={`mailto:${siteConfig.identity.email}`}
+                class="text-2xl sm:text-3xl font-extrabold text-ruby hover:underline transition-colors tracking-tight font-display"
+              >
+                {siteConfig.identity.email}
+              </a>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex flex-col gap-1">
+              <span class="text-secondary">PHONE <span class="text-ruby font-bold">—</span></span>
+              <span class="text-primary font-semibold">{siteConfig.identity.phone}</span>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="flex flex-col gap-1">
+              <span class="text-secondary">LINKEDIN <span class="text-ruby font-bold">—</span></span>
+              <a
+                href={siteConfig.identity.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-primary hover:text-ruby underline transition-colors"
+              >
+                linkedin.com/in/eli-montes-dataanalyst
+              </a>
+            </div>
+
+            <!-- Location -->
+            <div class="flex flex-col gap-1">
+              <span class="text-secondary">LOCATION & AVAILABILITY <span class="text-ruby font-bold">—</span></span>
+              <span class="text-primary font-semibold">{siteConfig.identity.location} — AVAILABLE GLOBALLY</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Accessible Contact Form -->
+        <div class="lg:col-span-7">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

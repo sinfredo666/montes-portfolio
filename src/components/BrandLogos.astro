@@ -1,0 +1,233 @@
+---
+// Brand Icons Grid component displaying vector brand emblems with external links
+const brandLinks = [
+  { name: 'APPLE', href: 'https://www.apple.com' },
+  { name: 'NIKE', href: 'https://www.nike.com' },
+  { name: 'FUJIFILM', href: 'https://www.fujifilm.com' },
+  { name: 'BOTTEGA VENETA', href: 'https://www.bottegaveneta.com' },
+  { name: 'UBER', href: 'https://www.uber.com' },
+  { name: 'PRADA', href: 'https://www.prada.com' },
+  { name: 'GAP', href: 'https://www.gap.com' },
+  { name: 'NETFLIX', href: 'https://www.netflix.com' },
+  { name: 'M·A·C', href: 'https://www.maccosmetics.com' },
+  { name: 'BOSE', href: 'https://www.bose.com' },
+  { name: 'YSL', href: 'https://www.ysl.com' },
+  { name: 'DAVID YURMAN', href: 'https://www.davidyurman.com' },
+  { name: 'KITH', href: 'https://kith.com' },
+  { name: 'TIFFANY & CO.', href: 'https://www.tiffany.com' },
+  { name: 'CHANEL', href: 'https://www.chanel.com' },
+  { name: 'NOTION', href: 'https://www.notion.so' },
+];
+---
+
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3 pt-3">
+  <!-- 1. APPLE -->
+  <a
+    href={brandLinks[0].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="APPLE (External Official Website)"
+  >
+    <svg class="h-5 w-auto fill-current" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-5.01.12-9.93-1.93-14.75-6.14-3.26-2.72-7.14-7.35-11.64-13.89-6.32-9.14-11.22-19.5-14.7-31.08-3.48-11.58-5.22-22.61-5.22-33.09 0-14.24 3.59-26.04 10.77-35.4 7.18-9.36 16.21-14.09 27.09-14.19 5.33 0 10.88 1.25 16.64 3.75 5.77 2.5 9.79 3.75 12.08 3.75 2.07 0 6.25-1.3 12.53-3.9 6.28-2.6 11.58-3.8 15.91-3.6 11.75.98 20.89 5.4 27.42 13.26-10.34 6.25-15.39 15.02-15.15 26.3.22 8.75 3.64 16.03 10.27 21.85 6.63 5.82 14.57 9.08 23.82 9.78-2.39 7.07-5.54 14.07-9.45 21.01zM119.22 31.06c0-6.96 2.5-13.43 7.5-19.41 5-5.98 11.2-9.65 18.6-11 0 .76.06 1.41.06 1.96 0 6.74-2.56 13.15-7.68 19.23-5.12 6.08-11.31 9.7-18.48 10.86-.33-.54-.5-1.08-.5-1.64z"/>
+    </svg>
+  </a>
+
+  <!-- 2. NIKE -->
+  <a
+    href={brandLinks[1].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="NIKE (External Official Website)"
+  >
+    <svg class="h-5 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21.71 6.32c-3.15 3.78-7.9 6.84-12.78 6.84-3.5 0-5.83-1.42-5.83-3.6 0-3.32 5.08-6.56 10.5-6.56 1.8 0 3.32.36 4.38 1.02.44.27.79.62.98 1.05.21.46.22 1.01-.25 1.25zM.5 15.68c.24.49.82.72 1.34.54 6.72-2.31 15.11-8.52 21.66-14.72.33-.31.25-.86-.18-.98-.43-.12-.9.08-1.18.42C15.68 7.15 7.74 13.06.5 15.68z" />
+    </svg>
+  </a>
+
+  <!-- 3. FUJIFILM / FUJI -->
+  <a
+    href={brandLinks[2].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="FUJIFILM (External Official Website)"
+  >
+    <svg class="h-4 w-auto fill-current" viewBox="0 0 110 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="13" letter-spacing="2">FUJIFILM</text>
+    </svg>
+  </a>
+
+  <!-- 4. BOTTEGA VENETA -->
+  <a
+    href={brandLinks[3].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="BOTTEGA VENETA (External Official Website)"
+  >
+    <svg class="h-3.5 w-auto fill-current" viewBox="0 0 150 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="'Times New Roman', serif" font-weight="700" font-size="10" letter-spacing="2">BOTTEGA VENETA</text>
+    </svg>
+  </a>
+
+  <!-- 5. UBER -->
+  <a
+    href={brandLinks[4].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="UBER (External Official Website)"
+  >
+    <svg class="h-4 w-auto fill-current" viewBox="0 0 100 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="18" letter-spacing="2">UBER</text>
+    </svg>
+  </a>
+
+  <!-- 6. PRADA -->
+  <a
+    href={brandLinks[5].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="PRADA (External Official Website)"
+  >
+    <svg class="h-4 w-auto fill-current" viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="'Times New Roman', serif" font-weight="700" font-size="16" letter-spacing="3">PRADA</text>
+    </svg>
+  </a>
+
+  <!-- 7. GAP -->
+  <a
+    href={brandLinks[6].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="GAP (External Official Website)"
+  >
+    <svg class="h-5 w-auto fill-current" viewBox="0 0 60 24" xmlns="http://www.w3.org/2000/svg">
+      <rect x="15" y="2" width="30" height="20" fill="none" stroke="currentColor" stroke-width="1.5" />
+      <text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="13" letter-spacing="1">GAP</text>
+    </svg>
+  </a>
+
+  <!-- 8. NETFLIX -->
+  <a
+    href={brandLinks[7].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="NETFLIX (External Official Website)"
+  >
+    <svg class="h-5 w-auto fill-current" viewBox="0 0 100 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="14" letter-spacing="2">NETFLIX</text>
+    </svg>
+  </a>
+
+  <!-- 9. M·A·C -->
+  <a
+    href={brandLinks[8].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="M·A·C Cosmetics (External Official Website)"
+  >
+    <svg class="h-4 w-auto fill-current" viewBox="0 0 80 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="14" letter-spacing="3">M·A·C</text>
+    </svg>
+  </a>
+
+  <!-- 10. BOSE -->
+  <a
+    href={brandLinks[9].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="BOSE (External Official Website)"
+  >
+    <svg class="h-4 w-auto fill-current" viewBox="0 0 90 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-style="italic" font-weight="900" font-size="16" letter-spacing="2">BOSE</text>
+    </svg>
+  </a>
+
+  <!-- 11. YSL -->
+  <a
+    href={brandLinks[10].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="YSL (External Official Website)"
+  >
+    <svg class="h-4 w-auto fill-current" viewBox="0 0 70 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="'Times New Roman', serif" font-weight="700" font-size="15" letter-spacing="4">YSL</text>
+    </svg>
+  </a>
+
+  <!-- 12. DAVID YURMAN -->
+  <a
+    href={brandLinks[11].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="DAVID YURMAN (External Official Website)"
+  >
+    <svg class="h-3.5 w-auto fill-current" viewBox="0 0 140 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="'Times New Roman', serif" font-weight="600" font-size="11" letter-spacing="2">DAVID YURMAN</text>
+    </svg>
+  </a>
+
+  <!-- 13. KITH -->
+  <a
+    href={brandLinks[12].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="KITH (External Official Website)"
+  >
+    <svg class="h-4 w-auto fill-current" viewBox="0 0 70 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="15" letter-spacing="2">KITH</text>
+    </svg>
+  </a>
+
+  <!-- 14. TIFFANY & CO. -->
+  <a
+    href={brandLinks[13].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="TIFFANY & CO. (External Official Website)"
+  >
+    <svg class="h-3.5 w-auto fill-current" viewBox="0 0 150 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="'Times New Roman', serif" font-weight="600" font-size="11" letter-spacing="2">TIFFANY & CO.</text>
+    </svg>
+  </a>
+
+  <!-- 15. CHANEL -->
+  <a
+    href={brandLinks[14].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="CHANEL (External Official Website)"
+  >
+    <svg class="h-4 w-auto fill-current" viewBox="0 0 100 24" xmlns="http://www.w3.org/2000/svg">
+      <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="14" letter-spacing="4">CHANEL</text>
+    </svg>
+  </a>
+
+  <!-- 16. NOTION -->
+  <a
+    href={brandLinks[15].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center h-12 px-3 py-2 border border-rule rounded bg-bg/60 text-primary hover:border-ruby hover:text-ruby hover:scale-105 transition-all group"
+    title="NOTION (External Official Website)"
+  >
+    <svg class="h-4 w-auto fill-current" viewBox="0 0 90 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 4h12v16H15z" fill="none" stroke="currentColor" stroke-width="1.5" />
+      <text x="55%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="12" letter-spacing="2">NOTION</text>
+    </svg>
+  </a>
+</div>

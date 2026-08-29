@@ -1,0 +1,53 @@
+---
+interface Props {
+  label: string;
+  metadata?: string;
+  altText: string;
+}
+
+const { label, metadata = 'ARCHIVE RESTORATION IN PROGRESS', altText } = Astro.props;
+---
+
+<div
+  class="relative w-full aspect-video hairline-all bg-neutral-950/60 overflow-hidden flex flex-col justify-between p-4 sm:p-8 group reveal img-scale"
+  role="img"
+  aria-label={altText}
+>
+  <!-- Background NYC Motion Still Graphic pattern -->
+  <div class="absolute inset-0 opacity-25 pointer-events-none transition-opacity group-hover:opacity-35">
+    <svg class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" preserveAspectRatio="none">
+      <!-- Grid lines representing motion frames / video timeline -->
+      {Array.from({ length: 9 }).map((_, i) => (
+        <line x1={i * 100} y1="0" x2={i * 100} y2="450" stroke="currentColor" stroke-width="0.5" class="text-primary" />
+      ))}
+      <line x1="0" y1="225" x2="800" y2="225" stroke="currentColor" stroke-width="1" class="text-ruby" stroke-dasharray="10,5" />
+      <!-- Radial focus ring -->
+      <circle cx="400" cy="225" r="140" fill="none" stroke="currentColor" stroke-width="0.75" class="text-primary" />
+      <circle cx="400" cy="225" r="180" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4,4" class="text-secondary" />
+    </svg>
+  </div>
+
+  <!-- Top Metadata bar -->
+  <div class="relative z-10 flex items-center justify-between font-mono text-xs uppercase tracking-widest text-secondary">
+    <span class="bg-bg/80 px-3 py-1 border border-rule">{metadata}</span>
+    <span class="text-secondary font-mono">[ 16:9 MOTION REEL ]</span>
+  </div>
+
+  <!-- Center Decorative Outlined Play Symbol -->
+  <div class="relative z-10 my-auto mx-auto flex items-center justify-center">
+    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-ruby/80 flex items-center justify-center bg-bg/60 backdrop-blur-sm group-hover:scale-105 group-hover:border-ruby transition-all duration-300">
+      <svg class="w-6 h-6 sm:w-8 sm:h-8 text-ruby ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Bottom Label and Placeholder Disclosure -->
+  <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 font-mono text-xs sm:text-sm uppercase tracking-wider text-primary bg-bg/90 p-4 border border-rule">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 bg-ruby rounded-full"></span>
+      <span class="font-bold text-primary">{label}</span>
+    </div>
+    <span class="text-[10px] text-secondary">EMBED-READY COMPONENT — TEMPORARY NYC PLACEHOLDER</span>
+  </div>
+</div>

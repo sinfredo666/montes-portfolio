@@ -1,0 +1,181 @@
+---
+import { siteConfig } from '../config/siteConfig';
+---
+
+<div class="hairline-all p-6 sm:p-10 bg-bg/40 max-w-3xl">
+  <form id="contact-form" class="flex flex-col gap-6" novalidate>
+    <!-- Field 1: YOUR NAME -->
+    <div class="flex flex-col gap-2">
+      <label for="form-name" class="font-mono text-xs uppercase tracking-widest text-primary font-semibold">
+        YOUR NAME <span class="text-ruby">*</span>
+      </label>
+      <input
+        type="text"
+        id="form-name"
+        name="name"
+        required
+        placeholder="E.G. ALEX MORGAN"
+        class="bg-bg border border-rule px-4 py-3 font-mono text-sm text-primary placeholder-secondary/50 focus:border-ruby focus:outline-none transition-colors"
+      />
+      <span class="field-error hidden font-mono text-[10px] text-ruby">Please enter your name.</span>
+    </div>
+
+    <!-- Field 2: ORGANIZATION -->
+    <div class="flex flex-col gap-2">
+      <label for="form-org" class="font-mono text-xs uppercase tracking-widest text-primary font-semibold">
+        ORGANIZATION
+      </label>
+      <input
+        type="text"
+        id="form-org"
+        name="organization"
+        placeholder="COMPANY, AGENCY, OR AGENCY/BRAND"
+        class="bg-bg border border-rule px-4 py-3 font-mono text-sm text-primary placeholder-secondary/50 focus:border-ruby focus:outline-none transition-colors"
+      />
+    </div>
+
+    <!-- Field 3: EMAIL -->
+    <div class="flex flex-col gap-2">
+      <label for="form-email" class="font-mono text-xs uppercase tracking-widest text-primary font-semibold">
+        EMAIL <span class="text-ruby">*</span>
+      </label>
+      <input
+        type="email"
+        id="form-email"
+        name="email"
+        required
+        placeholder="NAME@ORGANIZATION.COM"
+        class="bg-bg border border-rule px-4 py-3 font-mono text-sm text-primary placeholder-secondary/50 focus:border-ruby focus:outline-none transition-colors"
+      />
+      <span class="field-error hidden font-mono text-[10px] text-ruby">Please enter a valid email address.</span>
+    </div>
+
+    <!-- Field 4: PROJECT / BRIEF -->
+    <div class="flex flex-col gap-2">
+      <label for="form-brief" class="font-mono text-xs uppercase tracking-widest text-primary font-semibold">
+        PROJECT / BRIEF <span class="text-ruby">*</span>
+      </label>
+      <input
+        type="text"
+        id="form-brief"
+        name="brief"
+        required
+        placeholder="STILLS / MOTION / EVENT DOCUMENTATION / PM SUPPORT"
+        class="bg-bg border border-rule px-4 py-3 font-mono text-sm text-primary placeholder-secondary/50 focus:border-ruby focus:outline-none transition-colors"
+      />
+      <span class="field-error hidden font-mono text-[10px] text-ruby">Please specify your brief or project type.</span>
+    </div>
+
+    <!-- Field 5: TIMELINE -->
+    <div class="flex flex-col gap-2">
+      <label for="form-timeline" class="font-mono text-xs uppercase tracking-widest text-primary font-semibold">
+        TIMELINE
+      </label>
+      <input
+        type="text"
+        id="form-timeline"
+        name="timeline"
+        placeholder="IMMEDIATE / Q3 2026 / FLEXIBLE"
+        class="bg-bg border border-rule px-4 py-3 font-mono text-sm text-primary placeholder-secondary/50 focus:border-ruby focus:outline-none transition-colors"
+      />
+    </div>
+
+    <!-- Field 6: MESSAGE -->
+    <div class="flex flex-col gap-2">
+      <label for="form-message" class="font-mono text-xs uppercase tracking-widest text-primary font-semibold">
+        MESSAGE <span class="text-ruby">*</span>
+      </label>
+      <textarea
+        id="form-message"
+        name="message"
+        rows="5"
+        required
+        placeholder="PROVIDE DETAILS REGARDING LOCATION, SCOPE, DELIVERABLES, OR TIMEFRAME..."
+        class="bg-bg border border-rule px-4 py-3 font-mono text-sm text-primary placeholder-secondary/50 focus:border-ruby focus:outline-none transition-colors resize-y"
+      ></textarea>
+      <span class="field-error hidden font-mono text-[10px] text-ruby">Please include details about your assignment.</span>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      id="form-submit-btn"
+      class="mt-2 font-mono text-xs uppercase tracking-widest bg-ruby text-white hover:bg-ruby/90 transition-colors py-4 px-8 font-bold flex items-center justify-between group focus:outline-none focus:ring-2 focus:ring-ruby"
+    >
+      <span>{siteConfig.section004.submitText}</span>
+      <span class="group-hover:translate-x-1 transition-transform">→</span>
+    </button>
+  </form>
+
+  <!-- Confirmation State Container (hidden by default) -->
+  <div id="form-confirmation" class="hidden flex-col items-start gap-4 py-8">
+    <div class="flex items-center gap-3 text-ruby">
+      <span class="w-3 h-3 bg-ruby rounded-full animate-ping"></span>
+      <span class="font-mono text-sm font-bold uppercase tracking-widest">
+        {siteConfig.section004.confirmationCopy}
+      </span>
+    </div>
+    <p class="font-mono text-xs text-secondary max-w-md">
+      Thank you for submitting your brief. Your message has been dispatched to <span class="text-ruby font-semibold">{siteConfig.identity.email}</span>. Direct response within 24 hours.
+    </p>
+    <button
+      type="button"
+      id="form-reset-btn"
+      class="mt-4 font-mono text-xs uppercase tracking-wider text-secondary border border-rule hover:text-primary py-2 px-4"
+    >
+      [ SUBMIT ANOTHER BRIEF ]
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    const form = document.getElementById('contact-form');
+    const confirmation = document.getElementById('form-confirmation');
+    const resetBtn = document.getElementById('form-reset-btn');
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        const requiredInputs = form.querySelectorAll('[required]');
+        requiredInputs.forEach((input) => {
+          const errorSpan = input.nextElementSibling;
+          if (!input.value.trim()) {
+            isValid = false;
+            input.classList.add('border-ruby');
+            if (errorSpan && errorSpan.classList.contains('field-error')) {
+              errorSpan.classList.remove('hidden');
+            }
+          } else {
+            input.classList.remove('border-ruby');
+            if (errorSpan && errorSpan.classList.contains('field-error')) {
+              errorSpan.classList.add('hidden');
+            }
+          }
+        });
+
+        if (isValid) {
+          // Display confirmation state UI
+          form.classList.add('hidden');
+          if (confirmation) {
+            confirmation.classList.remove('hidden');
+            confirmation.classList.add('flex');
+          }
+        }
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          form.reset();
+          if (confirmation) {
+            confirmation.classList.add('hidden');
+            confirmation.classList.remove('flex');
+          }
+          form.classList.remove('hidden');
+        });
+      }
+    }
+  })();
+</script>

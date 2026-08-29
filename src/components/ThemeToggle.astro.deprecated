@@ -1,0 +1,66 @@
+---
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  aria-label="Toggle visual theme between Dark and Light mode"
+  class="font-mono text-xs uppercase tracking-widest text-secondary hover:text-ruby transition-colors py-1 px-2 border border-transparent focus:border-ruby focus:outline-none"
+>
+  <span id="theme-toggle-text">[ MODE: DARK ]</span>
+</button>
+
+<script is:inline>
+  (function () {
+    const toggleBtn = document.getElementById('theme-toggle');
+    const toggleText = document.getElementById('theme-toggle-text');
+
+    function updateToggleUI(isDark) {
+      if (toggleText) {
+        toggleText.textContent = isDark ? '[ MODE: DARK ]' : '[ MODE: LIGHT ]';
+      }
+    }
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('montes_theme');
+      let isDark = true;
+
+      if (savedTheme === 'light') {
+        isDark = false;
+      } else if (savedTheme === 'dark') {
+        isDark = true;
+      } else {
+        isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      } else {
+        document.documentElement.classList.add('light');
+        document.documentElement.classList.remove('dark');
+      }
+      updateToggleUI(isDark);
+    }
+
+    initTheme();
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const isCurrentlyDark = document.documentElement.classList.contains('dark');
+        const nextIsDark = !isCurrentlyDark;
+
+        if (nextIsDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+          localStorage.setItem('montes_theme', 'dark');
+        } else {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('montes_theme', 'light');
+        }
+        updateToggleUI(nextIsDark);
+      });
+    }
+  })();
+</script>

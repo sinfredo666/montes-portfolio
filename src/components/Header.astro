@@ -1,0 +1,70 @@
+---
+import { siteConfig } from '../config/siteConfig';
+---
+
+<header class="sticky top-0 z-40 bg-bg/90 backdrop-blur-md hairline-b w-full transition-colors duration-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Left: Bigger Peace Symbol Theme Switcher -->
+    <button
+      id="theme-toggle-logo"
+      type="button"
+      aria-label="Toggle light and dark mode"
+      title="Toggle Light / Dark Mode"
+      class="text-ruby text-3xl sm:text-4xl font-normal hover:scale-125 transition-transform duration-200 select-none p-1 focus:outline-none"
+    >
+      ☮︎
+    </button>
+
+    <!-- Desktop Navigation Links with Direct Character Text Glow (No Box Border) -->
+    <nav class="hidden lg:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-secondary">
+      {
+        siteConfig.navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="py-1 nav-text-glow focus:outline-none focus:text-ruby"
+          >
+            {link.label.replace(/^\d+\s*—\s*/, '')}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Right Controls: Mobile Menu Trigger -->
+    <div class="flex items-center gap-3">
+      <button
+        id="mobile-menu-open"
+        type="button"
+        aria-label="Open navigation menu"
+        class="lg:hidden font-mono text-xs uppercase tracking-widest text-primary border border-rule hover:border-ruby nav-text-glow transition-all px-3 py-1.5 focus:outline-none"
+      >
+        MENU
+      </button>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.getElementById('theme-toggle-logo');
+
+    function toggleTheme() {
+      const isLight = document.documentElement.classList.contains('light');
+      if (isLight) {
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('montes_theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        localStorage.setItem('montes_theme', 'light');
+      }
+    }
+
+    if (themeBtn) {
+      // Toggle on click
+      themeBtn.addEventListener('click', toggleTheme);
+      // Toggle on hover
+      themeBtn.addEventListener('mouseenter', toggleTheme);
+    }
+  });
+</script>

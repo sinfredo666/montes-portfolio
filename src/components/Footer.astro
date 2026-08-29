@@ -1,0 +1,42 @@
+---
+import { siteConfig } from '../config/siteConfig';
+---
+
+<footer class="w-full hairline-t bg-bg/80 py-12 px-4 sm:px-6 lg:px-8 mt-24">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
+    <!-- Left Column: Identity & Motif -->
+    <div class="flex flex-col gap-2">
+      <div class="flex items-center gap-3">
+        <span class="font-extrabold text-2xl tracking-tighter uppercase text-primary font-display">
+          {siteConfig.identity.displayName}.WORK
+        </span>
+        <span class="text-ruby text-xl select-none" aria-hidden="true">
+          {siteConfig.identity.motifSymbol}
+        </span>
+      </div>
+      <p class="font-mono text-xs uppercase tracking-wider text-secondary">
+        {siteConfig.identity.location} — STILL / MOTION / PROJECTS
+      </p>
+    </div>
+
+    <!-- Center Column: Apparel Spec Stamp Layout (EST. 2016) -->
+    <div class="flex flex-col items-start md:items-center gap-1 font-mono text-[11px] uppercase tracking-widest text-secondary text-left md:text-center border-y md:border-y-0 md:border-x border-rule py-4 md:py-0 md:px-8">
+      <span class="text-primary font-bold">{siteConfig.identity.displayName}™ / PROJECT SPEC ID 00524</span>
+      <span>MADE IN NEW YORK CITY — EST. {siteConfig.identity.estYear}</span>
+      <span class="text-[10px] text-ruby font-semibold">ALL RIGHTS RESERVED ☮︎</span>
+    </div>
+
+    <!-- Right Column: Direct Contact & Copyright -->
+    <div class="flex flex-col gap-2 font-mono text-xs uppercase tracking-wider items-start md:items-end">
+      <div class="flex flex-col items-start md:items-end gap-1">
+        <span class="text-secondary">DIRECT EMAIL —</span>
+        <a
+          href={`mailto:${siteConfig.identity.email}`}
+          class="text-ruby hover:underline text-sm font-semibold transition-colors"
+        >
+          {siteConfig.identity.email}
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
