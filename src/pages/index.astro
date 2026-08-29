@@ -215,6 +215,23 @@ import { siteConfig } from '../config/siteConfig';
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Left Column: Contact Information & Availability -->
         <div class="lg:col-span-5 flex flex-col gap-8">
+          <!-- Circular Portrait Avatar -->
+          <div class="flex items-center gap-5 my-1">
+            <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-ruby p-1 bg-bg/90 shadow-xl overflow-hidden shrink-0 group">
+              <img
+                src="/images/montes-portrait.jpg"
+                alt="MONTES creative portrait holding coffee in NYC"
+                class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div class="flex flex-col gap-1 font-mono">
+              <span class="text-xs text-ruby font-bold tracking-widest">[ MONTES / DIRECT ]</span>
+              <span class="font-display text-lg sm:text-xl font-extrabold uppercase tracking-tight text-primary">NEW YORK CITY</span>
+              <span class="text-[11px] text-secondary">CREATIVE PRODUCTION & VISUAL DIRECTION</span>
+            </div>
+          </div>
+
           <p class="font-sans text-lg sm:text-xl text-secondary leading-relaxed">
             {siteConfig.section004.body}
           </p>
