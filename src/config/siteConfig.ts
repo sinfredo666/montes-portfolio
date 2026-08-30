@@ -162,7 +162,7 @@ export const siteConfig = {
         category: 'RETAIL ACTIVATION / NYFW',
         metrics: '10M+ SOCIAL IMPRESSIONS — 1K+ CUSTOMERS SERVED',
         imageSrc: '/images/projects/bottega-veneta/hero.png',
-        objectPosition: 'object-center',
+        objectPosition: 'center center',
         gallery: [
           '/images/projects/bottega-veneta/hero.png',
           '/images/projects/bottega-veneta/cafe-1.jpg',
@@ -179,7 +179,7 @@ export const siteConfig = {
         category: 'MOBILE VEHICLE / NYFW',
         metrics: '18K+ FLORAL STEMS — 14K SAMPLES — 3 POP-UPS',
         imageSrc: '/images/projects/prada/hero.jpg',
-        objectPosition: 'object-bottom',
+        objectPosition: 'center 98%',
         gallery: [
           '/images/projects/prada/hero.jpg',
           '/images/projects/prada/lab-1.jpg',
@@ -196,7 +196,7 @@ export const siteConfig = {
         category: 'MULTIDAY IMMERSION / BEAUTY',
         metrics: '60+ PRODUCT DISPLAYS — 150-PERSON LAUNCH PARTY',
         imageSrc: '/images/projects/loreal/hero.jpg',
-        objectPosition: 'object-center',
+        objectPosition: 'center center',
         gallery: [
           '/images/projects/loreal/hero.jpg',
           '/images/projects/loreal/lab-1.jpg',
@@ -213,7 +213,7 @@ export const siteConfig = {
         category: 'FESTIVAL POP-UP / BEAUTY',
         metrics: '16K+ ATTENDEES — 16K+ SAMPLES — 1K PHOTOBOOTH',
         imageSrc: '/images/projects/ysl-essence/hero.jpg',
-        objectPosition: 'object-center',
+        objectPosition: 'center center',
         gallery: [
           '/images/projects/ysl-essence/hero.jpg',
           '/images/projects/ysl-essence/lab-1.jpg',

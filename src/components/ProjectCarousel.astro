@@ -30,7 +30,8 @@ import { siteConfig } from '../config/siteConfig';
               <img
                 src={project.imageSrc}
                 alt={project.title}
-                class={`w-full h-full object-cover ${project.objectPosition || 'object-center'} group-hover:scale-105 transition-transform duration-700 ease-out`}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                style={`object-position: ${project.objectPosition || 'center center'};`}
                 loading="lazy"
               />
             ) : (
