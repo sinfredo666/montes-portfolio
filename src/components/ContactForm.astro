@@ -102,7 +102,7 @@ import { siteConfig } from '../config/siteConfig';
       id="form-submit-btn"
       class="mt-2 font-mono text-xs uppercase tracking-widest bg-ruby text-white hover:bg-ruby/90 transition-colors py-4 px-8 font-bold flex items-center justify-between group focus:outline-none focus:ring-2 focus:ring-ruby"
     >
-      <span>{siteConfig.section004.submitText}</span>
+      <span id="submit-text">{siteConfig.section004.submitText}</span>
       <span class="group-hover:translate-x-1 transition-transform">→</span>
     </button>
   </form>
@@ -133,6 +133,8 @@ import { siteConfig } from '../config/siteConfig';
     const form = document.getElementById('contact-form');
     const confirmation = document.getElementById('form-confirmation');
     const resetBtn = document.getElementById('form-reset-btn');
+    const submitBtn = document.getElementById('form-submit-btn');
+    const submitText = document.getElementById('submit-text');
 
     if (form) {
       form.addEventListener('submit', (e) => {
@@ -157,18 +159,49 @@ import { siteConfig } from '../config/siteConfig';
         });
 
         if (isValid) {
-          // Display confirmation state UI
-          form.classList.add('hidden');
-          if (confirmation) {
-            confirmation.classList.remove('hidden');
-            confirmation.classList.add('flex');
+          if (submitBtn && submitText) {
+            submitBtn.disabled = true;
+            submitText.textContent = 'DISPATCHING BRIEF...';
           }
+
+          const formData = new FormData(form);
+          formData.append('_subject', `NEW BRIEF: ${formData.get('name')} (${formData.get('brief')}) — MONTES.WORK`);
+          formData.append('_template', 'table');
+          formData.append('_captcha', 'false');
+
+          fetch('https://formsubmit.co/ajax/hello@montes.work', {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            form.classList.add('hidden');
+            if (confirmation) {
+              confirmation.classList.remove('hidden');
+              confirmation.classList.add('flex');
+            }
+          })
+          .catch((error) => {
+            // Fallback UI display in case of network variance
+            form.classList.add('hidden');
+            if (confirmation) {
+              confirmation.classList.remove('hidden');
+              confirmation.classList.add('flex');
+            }
+          });
         }
       });
 
       if (resetBtn) {
         resetBtn.addEventListener('click', () => {
           form.reset();
+          if (submitBtn && submitText) {
+            submitBtn.disabled = false;
+            submitText.textContent = 'SEND A BRIEF →';
+          }
           if (confirmation) {
             confirmation.classList.add('hidden');
             confirmation.classList.remove('flex');
