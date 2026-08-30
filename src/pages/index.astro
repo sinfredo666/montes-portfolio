@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionHeader from '../components/SectionHeader.astro';
-import MotionFrame from '../components/MotionFrame.astro';
 import ContactForm from '../components/ContactForm.astro';
 import BrandLogos from '../components/BrandLogos.astro';
 import ProjectCarousel from '../components/ProjectCarousel.astro';
 import StillGallery from '../components/StillGallery.astro';
+import MotionReelGrid from '../components/MotionReelGrid.astro';
 import { siteConfig } from '../config/siteConfig';
 ---
 
@@ -155,12 +155,8 @@ import { siteConfig } from '../config/siteConfig';
       {siteConfig.section002.body}
     </p>
 
-    <!-- Motion Reel Component with HTML5 Video + Native Fallback -->
-    <MotionFrame
-      label={siteConfig.section002.placeholderLabel}
-      metadata={siteConfig.section002.smallMetadata}
-      altText="MONTES motion reel visual showcase"
-    />
+    <!-- 3 x 9:16 Vertical Motion Reel Grid -->
+    <MotionReelGrid />
   </section>
 
   <!-- ==========================================

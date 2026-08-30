@@ -1,0 +1,180 @@
+---
+import { siteConfig } from '../config/siteConfig';
+---
+
+<div class="relative w-full">
+  <!-- 3 x 9:16 Vertical Reel Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full items-start">
+    {siteConfig.section002.reels.map((reel) => (
+      <div
+        class="flex flex-col justify-between group cursor-pointer"
+        data-reel-card={reel.id}
+      >
+        <!-- 9:16 Vertical Reel Frame -->
+        <div class="relative aspect-[9/16] w-full overflow-hidden mb-3 border border-rule bg-neutral-950/80 hairline-all group-hover:border-ruby transition-colors duration-500">
+          {reel.videoSrc ? (
+            <video
+              src={reel.videoSrc}
+              poster={reel.poster}
+              autoplay
+              loop
+              muted
+              playsinline
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+          ) : (
+            <div class="relative w-full h-full overflow-hidden">
+              <img
+                src={reel.poster}
+                alt={reel.title}
+                class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-transparent"></div>
+              
+              <!-- Center Decorative Play Icon -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full border border-ruby flex items-center justify-center bg-bg/70 backdrop-blur-md group-hover:scale-110 group-hover:bg-ruby group-hover:text-white transition-all duration-300">
+                  <svg class="w-6 h-6 ml-0.5 text-ruby group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <!-- Top-Right 9:16 Aspect Pill -->
+          <span class="absolute top-3 right-3 font-mono text-[10px] bg-bg/90 px-2.5 py-1 border border-rule text-primary font-semibold backdrop-blur-sm opacity-90 group-hover:opacity-100 group-hover:border-ruby transition-all">
+            9:16 REEL ↗
+          </span>
+        </div>
+
+        <!-- Clean Editorial Text Below Reel Frame -->
+        <div class="flex flex-col gap-1 font-mono pt-1">
+          <span class="text-[11px] text-ruby font-bold tracking-wider">{reel.metadata}</span>
+          <h3 class="font-display font-extrabold uppercase tracking-tight text-primary text-lg group-hover:text-ruby transition-colors leading-tight break-words">
+            {reel.title}
+          </h3>
+          <p class="font-sans text-xs text-secondary line-clamp-2 mt-1 leading-relaxed">
+            {reel.summary}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Interactive Reel Video Lightbox Modal -->
+  <dialog id="reel-lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md p-4 sm:p-8 m-0 w-full h-full max-w-full max-h-full overflow-y-auto text-primary border-none hidden flex-col justify-center items-center">
+    <div class="relative w-full max-w-md bg-bg border border-chrome p-6 sm:p-8 my-auto shadow-2xl flex flex-col gap-5">
+      <!-- Close Button -->
+      <button
+        id="close-reel-modal"
+        class="absolute top-4 right-4 text-ruby font-mono text-xl font-bold border border-rule px-3 py-1 hover:bg-ruby hover:text-white transition-colors uppercase z-20"
+        aria-label="Close Motion Reel"
+      >
+        ✕ CLOSE
+      </button>
+
+      <!-- Modal Content Container -->
+      <div id="reel-modal-content" class="flex flex-col gap-4">
+        <!-- Dynamic video injected via JS -->
+      </div>
+    </div>
+  </dialog>
+</div>
+
+<script>
+  // Interactive Reel Lightbox Script
+  const reelCards = document.querySelectorAll('[data-reel-card]');
+  const reelModal = document.getElementById('reel-lightbox-modal') as HTMLDialogElement | null;
+  const closeReelModalBtn = document.getElementById('close-reel-modal');
+  const reelModalContent = document.getElementById('reel-modal-content');
+
+  const reelsData = [
+    {
+      id: 'reel-1',
+      title: 'REEL 01 — EVENT & ACTIVATION MOTION',
+      metadata: '9:16 VERTICAL REEL — SOHO & NYFW',
+      videoSrc: '',
+      poster: '/images/still/anua/anua-1.jpg',
+      summary:
+        'High-energy vertical documentation of live public activations, branded pop-ups, and experiential crowds across New York City.',
+    },
+    {
+      id: 'reel-2',
+      title: 'REEL 02 — BRANDED CONTENT & PRODUCT MOTION',
+      metadata: '9:16 VERTICAL REEL — PRODUCT & MERCH',
+      videoSrc: '',
+      poster: '/images/still/bose/bose-1.jpg',
+      summary:
+        'Tactile product details, merch reveals, and editorial video storytelling designed for social-first delivery.',
+    },
+    {
+      id: 'reel-3',
+      title: 'REEL 03 — BEHIND THE SCENES & STAGE DIRECTING',
+      metadata: '9:16 VERTICAL REEL — PRODUCTION & BTS',
+      videoSrc: '',
+      poster: '/images/still/notion/notion-1.jpg',
+      summary:
+        'On-site creative production, keynote stage directing, crew coordination, and real-world execution footage.',
+    },
+  ];
+
+  reelCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const reelId = card.getAttribute('data-reel-card');
+      const reel = reelsData.find((r) => r.id === reelId);
+
+      if (reel && reelModal && reelModalContent) {
+        const videoElementHtml = reel.videoSrc
+          ? `<video src="${reel.videoSrc}" controls autoplay class="w-full aspect-[9/16] object-cover border border-rule"></video>`
+          : `
+            <div class="relative aspect-[9/16] w-full border border-rule overflow-hidden bg-neutral-950">
+              <img src="${reel.poster}" alt="${reel.title}" class="w-full h-full object-cover opacity-50" />
+              <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-black/60 gap-3">
+                <span class="font-mono text-xs text-ruby font-bold uppercase">[ 9:16 MP4 READY ]</span>
+                <p class="font-mono text-xs text-primary leading-relaxed">Place your 9:16 vertical video in <code class="text-ruby bg-bg px-1.5 py-0.5 border border-rule">public/videos/reel-1.mp4</code> or add any video URL to <code class="text-ruby bg-bg px-1.5 py-0.5 border border-rule">siteConfig.ts</code></p>
+              </div>
+            </div>
+          `;
+
+        reelModalContent.innerHTML = `
+          <div class="flex flex-col gap-1 font-mono text-xs uppercase tracking-widest text-ruby font-bold">
+            <span>[ 9:16 VERTICAL MOTION REEL ]</span>
+            <span class="text-secondary text-[10px]">${reel.metadata}</span>
+          </div>
+
+          <h2 class="font-display text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-primary">
+            ${reel.title}
+          </h2>
+
+          ${videoElementHtml}
+
+          <p class="font-sans text-xs text-secondary leading-relaxed">
+            ${reel.summary}
+          </p>
+        `;
+
+        reelModal.classList.remove('hidden');
+        reelModal.classList.add('flex');
+        reelModal.showModal?.();
+      }
+    });
+  });
+
+  closeReelModalBtn?.addEventListener('click', () => {
+    if (reelModal) {
+      reelModal.classList.add('hidden');
+      reelModal.classList.remove('flex');
+      reelModal.close?.();
+    }
+  });
+
+  reelModal?.addEventListener('click', (e) => {
+    if (e.target === reelModal) {
+      reelModal.classList.add('hidden');
+      reelModal.classList.remove('flex');
+      reelModal.close?.();
+    }
+  });
+</script>
