@@ -121,18 +121,18 @@ export const siteConfig = {
     reels: [
       {
         id: 'reel-1',
-        title: 'REEL 01 — EVENT & ACTIVATION MOTION',
-        metadata: '9:16 VERTICAL REEL — SOHO & NYFW',
-        videoSrc: '', // Local MP4 e.g. '/videos/reel-1.mp4' or Cloud URL
-        poster: '/images/still/anua/anua-1.jpg',
+        title: 'NIKE — NIKE GRIND (SUSTAINABILITY CAFÉ)',
+        metadata: 'NIKE × CNC — 9:16 VERTICAL MOTION',
+        videoSrc: '/videos/nike-grind.mp4',
+        poster: '/images/projects/nike-grind/hero.jpg',
         summary:
-          'High-energy vertical documentation of live public activations, branded pop-ups, and experiential crowds across New York City.',
+          'Nike partnered with CNC to transform an NYC space into an immersive sustainability café celebrating Nike Grind recycled material technology.',
       },
       {
         id: 'reel-2',
         title: 'REEL 02 — BRANDED CONTENT & PRODUCT MOTION',
         metadata: '9:16 VERTICAL REEL — PRODUCT & MERCH',
-        videoSrc: '', // Local MP4 e.g. '/videos/reel-2.mp4' or Cloud URL
+        videoSrc: '',
         poster: '/images/still/bose/bose-1.jpg',
         summary:
           'Tactile product details, merch reveals, and editorial video storytelling designed for social-first delivery.',
@@ -141,7 +141,7 @@ export const siteConfig = {
         id: 'reel-3',
         title: 'REEL 03 — BEHIND THE SCENES & STAGE DIRECTING',
         metadata: '9:16 VERTICAL REEL — PRODUCTION & BTS',
-        videoSrc: '', // Local MP4 e.g. '/videos/reel-3.mp4' or Cloud URL
+        videoSrc: '',
         poster: '/images/still/notion/notion-1.jpg',
         summary:
           'On-site creative production, keynote stage directing, crew coordination, and real-world execution footage.',
