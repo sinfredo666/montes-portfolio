@@ -129,12 +129,12 @@ export const siteConfig = {
       },
       {
         id: 'reel-2',
-        title: 'REEL 02 — BRANDED CONTENT & PRODUCT MOTION',
-        metadata: '9:16 VERTICAL REEL — PRODUCT & MERCH',
-        videoSrc: '',
-        poster: '/images/still/bose/bose-1.jpg',
+        title: 'OLAPLEX — LEAVE "INN" NYFW POP-UP',
+        metadata: 'OLAPLEX × CNC — 9:16 VERTICAL MOTION',
+        videoSrc: '/videos/olaplex-nyfw.mp4',
+        poster: '/images/still/anua/anua-2.jpg',
         summary:
-          'Tactile product details, merch reveals, and editorial video storytelling designed for social-first delivery.',
+          'Olaplex debuted its Leave In Conditioner during NYFW with the Leave "Inn," a hotel-themed pop-up complete with a concierge desk, styling lounge, and hands-on Bond Bar.',
       },
       {
         id: 'reel-3',
