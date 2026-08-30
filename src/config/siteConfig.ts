@@ -32,9 +32,8 @@ export const siteConfig = {
     mainStatement: 'VISUAL STORYTELLING FOR THE REAL WORLD.',
     supportingLine: 'STILL — MOTION — PROJECTS / NEW YORK CITY',
     narrativeParagraphs: [
-      'MONTES is a New York City–based visual-content, creative-production, and project-management professional with 10+ years of experience across creative, campaign, and live-production environments.',
-      'Built in major-agency settings and refined through live work, his practice moves between the image and the operation behind it: photography and motion, creative development and content capture, stakeholder alignment and client-facing delivery. He approaches every assignment with equal attention to visual clarity, cultural context, production realities, and the audience on the other side of the work.',
-      'His experience includes work across TBWA\\CHIAT\\DAY, HAVAS, and CNC AGENCY, where he has supported public-facing campaigns, live activations, and project-led creative delivery for brands spanning culture, fashion, beauty, retail, technology, and entertainment.',
+      'Built in major-agency settings and refined through live work, his practice moves between the image and the operation behind it: creative direction and content capture, stakeholder alignment, and client-facing delivery.',
+      'He approaches every assignment with equal attention to visual clarity, cultural context, production realities, and the audience on the other side of the work—executing public-facing campaigns, live activations, and content delivery across fashion, beauty, technology, and culture.',
     ],
     agencyLabel: 'AGENCY EXPERIENCE —',
     agencies: 'TBWA\\CHIAT\\DAY — HAVAS — CNC AGENCY',
